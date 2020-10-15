@@ -26,6 +26,8 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "moment": "^2.29.1",
+    "paper": "^0.12.11",
     "sirv-cli": "^1.0.0",
     "svelte-routing": "^1.4.2"
   }
