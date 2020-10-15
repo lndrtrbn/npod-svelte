@@ -39,6 +39,7 @@ export default {
 	},
 	plugins: [
 		svelte({
+			hydratable: true,
 			// enable run-time checks when not in production
 			dev: !production,
 			// we'll extract any component CSS out into
@@ -46,7 +47,14 @@ export default {
 			css: css => {
 				css.write('bundle.css');
 			},
-			preprocess: sveltePreprocess(),
+			preprocess: sveltePreprocess({
+				scss: {
+					includePaths: ['src']
+				},
+				postcss: {
+					plugins: [require('autoprefixer')],
+				},
+			}),
 		}),
 
 		// If you have external dependencies installed from
